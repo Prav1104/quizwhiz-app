@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { loginUser, loginWithGoogle, registerUser, logoutUser } from '../firebase/authservices'; // Adjust path if necessary
+import './LoginPage.css';
 
 
 

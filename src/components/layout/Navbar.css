@@ -16,7 +16,7 @@ nav ul{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: bisque;
+    background-color:darkcyan;
     padding: 10px;
     margin :0 auto;
 }
@@ -29,32 +29,33 @@ nav li{
     display: flex;
     align-items: center;
     color: black;
+    font-weight: 300;
 }
 
 nav li:hover{
     color: pink;
 }
 
-nav button:hover{
-    color: pink;
-}
+
+
 
 nav li:first-child{
     margin-right: auto;
     font-size: xx-large;
     font-weight: 600;
-    color: cadetblue;
+    color: white;
 }
 
+/* change color here  */
 .sidebar{
     position: fixed;  
     top: 0;
     right: 0;
-    height:100vh;
     backdrop-filter: blur(10px);
     width: 250px;
+    padding: 50px;
     z-index: 999;
-    background-color: white;
+    background-color: lightblue;
     box-shadow: -10px 0 10px rgba(0,0,0,0.1);
     display: none;
     flex-direction: column;
@@ -70,6 +71,22 @@ nav li:first-child{
     width: 100%;
 }
 
-img{
-    color: black;
+.menubutton{
+    display: none;
+}
+
+@media(max-width:800px){
+    .onmobile{
+        display: none;
+    }
+
+    .menubutton{
+        display: block;
+    }
+}
+
+@media(max-width:400px){
+    .sidebar{
+        width: 100%;
+    }
 }

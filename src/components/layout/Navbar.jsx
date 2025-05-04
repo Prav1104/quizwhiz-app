@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import MenuIcon from './menu.svg';
-import { BrainCircuit } from 'lucide-react';
+import { BrainCircuit,Menu,X } from 'lucide-react';
+import {ShowSidebar} from './showside';
+import { Hidesidebar } from './showside';
+
 
 
 
@@ -12,7 +14,7 @@ const Navbar = () => {
       <div className="navbar-container">
       <ul className='sidebar'>
           <li>
-            <Link to="/" className="logo">QuizWhiz</Link>
+            <Link to="/" className="logo"><X style={{color : 'black'}} onClick={Hidesidebar}/></Link>
           </li>
           <li>
             <Link to="/" className="nav-link">Home</Link>
@@ -20,11 +22,11 @@ const Navbar = () => {
           <li>
             <Link to="/help" className="nav-link">Help</Link>
           </li>
-          <li>
+          <li> 
             <Link to="/about" className="nav-link">About</Link>
           </li>
           <li>
-          <img src={MenuIcon} alt="Menu icon" />
+          <Link to="/about" className="nav-link">Login</Link>
           </li>
 
         </ul>
@@ -32,25 +34,25 @@ const Navbar = () => {
         <ul>
           <li>
           <Link to="/" className="logo">
-          <BrainCircuit  size={24} color={'black'} gap = {'1rem'}/>
-          <span>QuizWhiz</span>
+          
+          <span><BrainCircuit  size={24} color={'black'}/>QuizWhiz</span>
         </Link>
           </li>
-          <li>
-            <Link to="/home" className="nav-link">Home</Link>
+          <li className = 'onmobile'>
+            <Link to="/" className="nav-link">Home</Link>
           </li>
 
-          <li>
+          <li className = 'onmobile'>
             <Link to="/help" className="nav-link">Help</Link>
           </li>
-          <li>
+          <li className = 'onmobile'>
             <Link to="/about" className="nav-link">About</Link>
           </li>
-          <li>
-            <button to="/" className="nav-link" style={{background : 'bisque'}}>{'Logout'}</button>
+          <li className = 'onmobile'>
+          <Link to="/login" className="nav-link">Login</Link>
           </li>
           <li>
-          <img src={MenuIcon} alt="Menu icon" />
+          <Menu onClick={ShowSidebar} className='menubutton'/>
           </li>
 
         </ul>

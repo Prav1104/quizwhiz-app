@@ -18,12 +18,12 @@ function App() {
         <div className='main-div'>
           <div className='div-container'>
           <Routes>
-            <Route path='/home' element = {<HomePage/>}></Route>
+            <Route path='/' element = {<HomePage/>}></Route>
             <Route path='/about' element = {<AboutPage/>}></Route>
             <Route path='help' element = {<HelpPage/>}></Route>
             <Route path="/scores" element={<ScoresPage />} />
             <Route path='/mainquiz' element = {<MainquizPage/>}></Route>
-            <Route path="/" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage />} />
 
           </Routes>
           </div>
