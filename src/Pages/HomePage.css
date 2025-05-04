@@ -1,0 +1,19 @@
+.landing-logo h1{
+    color:yellowgreen;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0 64px;
+    font-size: 5rem;
+    background: linear-gradient(to right, var(--color-primary-600), var(--color-accent-500));
+}
+
+.landing-tagline{
+    font-weight: 200;
+    font-size: 1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+
+}
+
