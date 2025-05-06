@@ -8,6 +8,8 @@
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
     box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+    width: 100%;
+    
 }
 
 nav ul{
@@ -16,27 +18,27 @@ nav ul{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color:darkcyan;
+    background-color:#4f46e5;
     padding: 10px;
     margin :0 auto;
 }
 
 nav li{
     height: 50px;
+    font-weight: 500;
+    font-size: 1rem;
     height:100%;
     padding:0 30px;
     text-decoration: none;
     display: flex;
     align-items: center;
-    color: black;
+    color: white;
     font-weight: 300;
 }
 
 nav li:hover{
     color: pink;
 }
-
-
 
 
 nav li:first-child{
@@ -52,7 +54,7 @@ nav li:first-child{
     top: 0;
     right: 0;
     backdrop-filter: blur(10px);
-    width: 250px;
+    width: 100%;
     padding: 50px;
     z-index: 999;
     background-color: lightblue;
@@ -75,13 +77,19 @@ nav li:first-child{
     display: none;
 }
 
-@media(max-width:800px){
+@media(max-width:768px){
     .onmobile{
         display: none;
     }
 
     .menubutton{
         display: block;
+    }
+}
+
+@media (max-width:320px){
+    .navbar{
+        width: 100%;
     }
 }
 

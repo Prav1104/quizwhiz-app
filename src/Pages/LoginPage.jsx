@@ -1,54 +1,58 @@
 import React, { useState } from 'react';
-import { loginUser, loginWithGoogle, registerUser, logoutUser } from '../firebase/authservices'; // Adjust path if necessary
+import { useNavigate } from 'react-router-dom';
+import {
+  loginUser,
+  loginWithGoogle,
+  registerUser,
+  logoutUser,
+} from '../firebase/authservices';
 import './LoginPage.css';
-
-
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const [error, setError] = useState('');
-  const [isLogin, setIsLogin] = useState(true); // True for login, false for register
-  const [user, setUser] = useState(null); // To store logged-in user
+  const [isLogin, setIsLogin] = useState(true);
+  const [user, setUser] = useState(null);
 
-  // Handle form submission for login
+  const navigate = useNavigate();
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const userCredential = await loginUser(email, password);
       setUser(userCredential.user);
       setError('');
+      navigate('/');
     } catch (err) {
       setError(err.message);
     }
   };
 
-  // Handle form submission for registration
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
       const userCredential = await registerUser(email, password, username);
       setUser(userCredential.user);
       setError('');
+      navigate('/');
     } catch (err) {
       setError(err.message);
     }
   };
 
-
-  // Handle Google login
   const handleGoogleLogin = async () => {
     try {
       const user = await loginWithGoogle();
       setUser(user);
       setError('');
+      navigate('/');
     } catch (err) {
       setError(err.message);
     }
   };
 
-  // Handle logout
   const handleLogout = async () => {
     try {
       await logoutUser();
@@ -59,20 +63,25 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
+    <div className="login-container">
       {user ? (
-        <div>
-          <h2>Welcome, {user.displayName || user.email}</h2>
-          <button onClick={handleLogout}>Logout</button>
+        <div className="welcome-box">
+          <h2 className="welcome-message">
+            Welcome, {user.displayName || user.email}
+          </h2>
+          <button className="logout-button" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
       ) : (
-        <div>
-          <h2>{isLogin ? 'Login' : 'Register'}</h2>
-          {error && <p style={{ color: 'red' }}>{error}</p>}
+        <div className="form-box">
+          <h2 className="form-title">{isLogin ? 'Login' : 'Register'}</h2>
+          {error && <p className="error-text">{error}</p>}
 
           {isLogin ? (
-            <form onSubmit={handleLogin}>
+            <form className="form" onSubmit={handleLogin}>
               <input
+                className="input"
                 type="email"
                 placeholder="Email"
                 value={email}
@@ -80,17 +89,21 @@ const LoginPage = () => {
                 required
               />
               <input
+                className="input"
                 type="password"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <button type="submit">Login</button>
+              <button className="submit-button" type="submit">
+                Login
+              </button>
             </form>
           ) : (
-            <form onSubmit={handleRegister}>
+            <form className="form" onSubmit={handleRegister}>
               <input
+                className="input"
                 type="text"
                 placeholder="Username"
                 value={username}
@@ -98,6 +111,7 @@ const LoginPage = () => {
                 required
               />
               <input
+                className="input"
                 type="email"
                 placeholder="Email"
                 value={email}
@@ -105,23 +119,31 @@ const LoginPage = () => {
                 required
               />
               <input
+                className="input"
                 type="password"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <button type="submit">Register</button>
+              <button className="submit-button" type="submit">
+                Register
+              </button>
             </form>
           )}
 
-          <button onClick={handleGoogleLogin}>Login with Google</button>
+          <button className="google-button" onClick={handleGoogleLogin}>
+            Login with Google
+          </button>
 
-          <div>
-            <button onClick={() => setIsLogin(!isLogin)}>
-              {isLogin ? 'Don\'t have an account? Register' : 'Already have an account? Login'}
-            </button>
-          </div>
+          <button
+            className="toggle-button"
+            onClick={() => setIsLogin(!isLogin)}
+          >
+            {isLogin
+              ? "Don't have an account? Register"
+              : 'Already have an account? Login'}
+          </button>
         </div>
       )}
     </div>
@@ -129,3 +151,4 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+

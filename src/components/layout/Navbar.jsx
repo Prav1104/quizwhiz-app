@@ -7,8 +7,8 @@ import { Hidesidebar } from './showside';
 
 
 
-
 const Navbar = () => {
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -28,8 +28,8 @@ const Navbar = () => {
           <li>
           <Link to="/about" className="nav-link">Login</Link>
           </li>
-
         </ul>
+
 
         <ul>
           <li>
