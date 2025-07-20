@@ -20,7 +20,7 @@ const handleSearch = (e) =>{
 
                 <button type='submit' className='search-button' >
                 <Search size={20}/>
-                <span className='search-only'>Search</span>
+                <span className='search-only' onClick={handleSearch}>Search</span>
                 </button>
 
                 
