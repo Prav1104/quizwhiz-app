@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const OPENROUTER_API_KEY = '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'; // your key
+const OPENROUTER_API_KEY = process.env.REACT_APP_OPENROUTER_API_KEY;
 
 export const fetchAIQuestions = async (subject) => {
   const prompt = `Generate 10 multiple-choice questions with 4 options and answers in JSON format for the subject: ${subject}.
@@ -17,13 +17,11 @@ Each question should be in JSON format like:
 }
 Return ONLY a JSON array.`;
 
-const headers = {
-  Authorization: `Bearer ${OPENROUTER_API_KEY}`,
-  'Content-Type': 'application/json',
-//   'HTTP-Referer': 'http://localhost:3000', // or your production domain
-  'X-Title': 'QuizWhiz' // any title for your app
-};
-
+  const headers = {
+    Authorization: `Bearer ${OPENROUTER_API_KEY}`,
+    'Content-Type': 'application/json',
+    'X-Title': 'QuizWhiz'
+  };
 
   const body = {
     model: "mistralai/mistral-7b-instruct",
@@ -43,6 +41,7 @@ const headers = {
     throw new Error('Failed to fetch questions from AI.');
   }
 };
+
 
 
 
