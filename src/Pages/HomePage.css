@@ -1,12 +1,16 @@
-.landing-page {
+.LandingPage {
   padding: 32px 0;
 }
 
-.landing-container {
+.LandingContainer {
   padding: 0 16px; /* adds side spacing on mobile */
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.landing-logo {
+.LandingLogo {
   margin-top: 50px;
   line-height: 1.1;
   font-size: 3rem;
@@ -33,13 +37,16 @@
   }
 }
 
-.landing-header {
+.LandingHeader {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow-x: hidden;
   text-align: center;
 }
 
-.landing-tagline {
+.LandingTagline {
   font-weight: 200;
   font-size: 1.5rem;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -48,36 +55,33 @@
   text-align: center;
 }
 
-.subjectcards-grid {
+.SubjectCardsGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* default: desktop */
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-bottom: 32px;
 }
 
-
 @media (max-width: 639px) {
-  .subjectcards-grid {
+  .SubjectCardsGrid {
     grid-template-columns: repeat(1, 1fr);
   }
 }
 
-
 @media (min-width: 640px) and (max-width: 1023px) {
-  .subjectcards-grid {
+  .SubjectCardsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-
 @media (min-width: 1280px) {
-  .subjectcards-grid {
+  .SubjectCardsGrid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .landing-page {
+  .LandingPage {
     padding: 48px 0;
   }
 }
@@ -93,8 +97,6 @@
   }
 }
 
-
-
 body {
   margin: 0;
   padding: 0;
@@ -102,7 +104,7 @@ body {
 }
 
 /* logo settled */
-.landing-logo h1 {
+.LandingLogo h1 {
   font-size: 7rem;
   text-align: center;
   word-break: break-word;
@@ -110,22 +112,6 @@ body {
   overflow-wrap: break-word;
 }
 
-
-.landing-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-.landing-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 16px;
-  box-sizing: border-box;
-}
 
 
 

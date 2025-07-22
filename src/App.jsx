@@ -6,7 +6,6 @@ import HomePage from './Pages/HomePage'
 import AboutPage from './Pages/AboutPage'
 import HelpPage from './Pages/HelpPage'
 import MainquizPage from './Pages/MainquizPage'
-import ScoresPage from './Pages/ScoresPage';
 import LoginPage from './Pages/LoginPage'
 import React from 'react'
 
@@ -21,7 +20,6 @@ function App() {
             <Route path='/' element = {<HomePage/>}></Route>
             <Route path='/about' element = {<AboutPage/>}></Route>
             <Route path='help' element = {<HelpPage/>}></Route>
-            <Route path="/scores" element={<ScoresPage />} />
             <Route path='/quiz' element = {<MainquizPage/>}></Route>
             <Route path="/login" element={<LoginPage />} />
 

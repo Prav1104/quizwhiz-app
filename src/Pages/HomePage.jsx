@@ -204,31 +204,31 @@ function Home() {
 
   return (
     <div>
-      <div className='landing-page'>
-        <div className='landing-container'>
-          <div className='landing-header'>
-            <div className='landing-logo'>
+      <div className="LandingPage">
+        <div className="LandingContainer">
+          <div className="LandingHeader">
+            <div className="LandingLogo">
               <h1><BrainCircuit size={'5rem'} color='purple' />QuizWhiz</h1>
             </div>
-            <p className='landing-tagline'>Test your tech knowledge with interactive quizzes..!</p>
+            <p className="LandingTagline">Test your tech knowledge with interactive quizzes..!</p>
 
             <SearchBar onSearch={handleSearch} />
 
             {SearchQuery && (
-              <div className="search-results-info">
+              <div className="SearchResultsInfo">
                 Showing {subjects.length} results for "{SearchQuery}"
                 {subjects.length === 0 && (
-                  <p>No subjects found. Try a different search term.</p>
+                  <p>Sorry we couldn't find the subject you searched for, would you like to try another?</p>
                 )}
               </div>
             )}
 
-            <div className='subjectcards-grid'>
+            <div className="SubjectCardsGrid">
               {
                 subjects.map((subject, index) => (
                   <div
                     key={subject.id}
-                    className='main-subject'
+                    className="MainSubject"
                     style={{ animationDelay: `${index * 1}s` }}>
                     <SubjectCard subject={subject} />
                   </div>
@@ -240,7 +240,7 @@ function Home() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Home

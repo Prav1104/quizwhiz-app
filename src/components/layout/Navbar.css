@@ -98,3 +98,100 @@ nav li:first-child{
         width: 100%;
     }
 }
+
+
+/* the toggle feature is being styled here  */
+/* Styles for user name + logout section */
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #f3f4f6;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #1f2937;
+  font-weight: 500;
+}
+
+/* Display username/email */
+.nav-user span {
+  color: #374151;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Logout button styling */
+.logout-btn {
+  background-color: #ef4444;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626;
+}
+
+/* Responsive: Stack on small screens */
+@media (max-width: 640px) {
+  .nav-user {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .logout-btn {
+    width: 100%;
+  }
+}
+
+.nav-user-wrapper {
+  position: relative;
+}
+
+.nav-user-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  cursor: pointer;
+}
+
+/* Match nav-link styles for the user-name */
+.user-name {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: color 0.2s ease;
+  display: inline-block;
+}
+
+.user-name:hover {
+  color: pink; /* Same hover effect as nav-link */
+}
+
+/* Logout button style */
+.logout-btn {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #fef2f2;
+}
+

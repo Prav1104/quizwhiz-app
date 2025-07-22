@@ -4,120 +4,109 @@ import './AboutPage.css';
 
 const AboutPage = () => {
   return (
-    <div className="about-page">
-      <div className="container">
-        <div className="about-header">
+    <div className="AboutPage">
+      <div className="Container">
+        <div className="AboutHeader">
           <h1>About QuizWhiz</h1>
-          <p className="about-subtitle">Learn, Test, and Master Tech Skills</p>
+          <p className="AboutSubtitle">Learn, Test, and Master Tech Skills</p>
         </div>
 
-        <div className="about-content">
-          <section className="about-section fade-in">
+        <div className="AboutContent">
+          <section className="AboutSection FadeIn">
             <h2>Our Mission</h2>
             <p>
-              QuizWhiz was created to help developers, students, and tech enthusiasts test and improve 
-              their knowledge across various programming languages and technical concepts. We believe 
-              that active learning through quizzes is one of the most effective ways to reinforce 
-              understanding and identify areas for improvement.
+              QuizWhiz is an interactive quiz platform designed for developers, students, and tech enthusiasts to sharpen their skills through AI-powered quizzes. With dynamically generated questions tailored to each subject, real-time scoring, smooth navigation, and responsive design — QuizWhiz turns learning into an engaging experience. Whether you're revising key concepts or exploring new tech domains, QuizWhiz helps you learn actively, track progress, and grow confidently.
             </p>
           </section>
 
-          <section className="about-features slide-in-up">
-            <div className="feature-card">
-              <div className="feature-icon">
+          <section className="AboutFeatures SlideInUp">
+            <div className="FeatureCard">
+              <div className="FeatureIcon">
                 <BookOpen size={24} />
               </div>
-              <h3>Learning-Focused</h3>
+              <h3>AI-Generated Quizzes</h3>
               <p>
-                Our quizzes are designed not just to test but to teach. Each question helps reinforce 
-                key concepts in programming and computer science.
+                Every quiz is freshly crafted using AI, ensuring you get new and challenging questions each time — no repeats, no static sets.
               </p>
             </div>
 
-            <div className="feature-card">
-              <div className="feature-icon">
+            <div className="FeatureCard">
+              <div className="FeatureIcon">
                 <BrainCircuit size={24} />
               </div>
-              <h3>Comprehensive Topics</h3>
+              <h3>Wide Subject Coverage</h3>
               <p>
-                From front-end technologies to algorithms and data structures, we cover the full 
-                spectrum of technical knowledge needed in today's tech landscape.
+                Explore quizzes on JavaScript, Python, HTML, React, Git, and more. Each topic is designed to test both core and advanced concepts.
               </p>
             </div>
 
-            <div className="feature-card">
-              <div className="feature-icon">
+            <div className="FeatureCard">
+              <div className="FeatureIcon">
                 <Award size={24} />
               </div>
-              <h3>Track Progress</h3>
+              <h3>Instant Results & Feedback</h3>
               <p>
-                Monitor your learning journey with detailed scorecards that show your strengths and areas 
-                for improvement across different tech domains.
+                Know how you performed right away. Score summaries and personalized messages give you motivation and direction for what's next.
               </p>
             </div>
 
-            <div className="feature-card">
-              <div className="feature-icon">
+            <div className="FeatureCard">
+              <div className="FeatureIcon">
                 <Users size={24} />
               </div>
-              <h3>Community Driven</h3>
+              <h3>Effortless & Intuitive UI</h3>
               <p>
-                Our questions are regularly updated based on industry trends and community feedback 
-                to ensure relevance and accuracy.
+                Built with responsiveness and simplicity in mind — QuizWhiz works seamlessly across all devices with smooth navigation and modern design.
               </p>
             </div>
           </section>
 
-          <section className="about-section fade-in">
+          <section className="AboutSection FadeIn">
             <h2>How It Works</h2>
-            <p>
-              Getting started with QuizWhiz is simple:
-            </p>
-            <ol className="steps-list">
+            <p>Start your QuizWhiz journey in just a few clicks:</p>
+            <ol className="StepsList">
               <li>
-                <div className="step-number">1</div>
-                <div className="step-content">
-                  <h4>Create an Account</h4>
-                  <p>Sign up to track your progress and save your quiz results over time.</p>
+                <div className="StepNumber">1</div>
+                <div className="StepContent">
+                  <h4>Sign Up or Log In</h4>
+                  <p>Create an account using email or Google to personalize your experience and keep track of attempts.</p>
                 </div>
               </li>
               <li>
-                <div className="step-number">2</div>
-                <div className="step-content">
-                  <h4>Choose a Subject</h4>
-                  <p>Select from a wide range of technology topics based on your interests or learning goals.</p>
+                <div className="StepNumber">2</div>
+                <div className="StepContent">
+                  <h4>Pick a Topic</h4>
+                  <p>Browse a variety of subjects like JavaScript, Python, React, Git, and more — all at your fingertips.</p>
                 </div>
               </li>
               <li>
-                <div className="step-number">3</div>
-                <div className="step-content">
-                  <h4>Take Quizzes</h4>
-                  <p>Answer multiple-choice questions designed to test your knowledge and understanding.</p>
+                <div className="StepNumber">3</div>
+                <div className="StepContent">
+                  <h4>Start the Quiz</h4>
+                  <p>We instantly generate new questions using AI, so every quiz is fresh, relevant, and unpredictable.</p>
                 </div>
               </li>
               <li>
-                <div className="step-number">4</div>
-                <div className="step-content">
-                  <h4>Review Results</h4>
-                  <p>See your score and review the correct answers to learn from any mistakes.</p>
+                <div className="StepNumber">4</div>
+                <div className="StepContent">
+                  <h4>Answer & Navigate</h4>
+                  <p>Select your answers, move between questions easily, and get a smooth, responsive quiz experience.</p>
                 </div>
               </li>
               <li>
-                <div className="step-number">5</div>
-                <div className="step-content">
-                  <h4>Track Progress</h4>
-                  <p>Visit your scorecard to see how you're improving over time across different subjects.</p>
+                <div className="StepNumber">5</div>
+                <div className="StepContent">
+                  <h4>View Results & Improve</h4>
+                  <p>See your score instantly and get motivating feedback based on how well you performed.</p>
                 </div>
               </li>
             </ol>
           </section>
 
-          <section className="about-section fade-in">
+          <section className="AboutSection FadeIn">
             <h2>Our Vision</h2>
             <p>
-              We're continuously working to expand our question database, add new features, and improve 
-              the learning experience. Our goal is to create the most comprehensive tech learning platform 
-              that adapts to the rapidly evolving technology landscape.
+              We're continuously working to expand our question database, add new features, and improve the learning experience. Our goal is to create the most comprehensive tech learning platform that adapts to the rapidly evolving technology landscape.
             </p>
           </section>
         </div>

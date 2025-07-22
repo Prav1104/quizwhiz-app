@@ -4,40 +4,31 @@ import './MainquizPage.css';
 
 function Mainquiz() {
     const location = useLocation();
-
-    // lists questions and returns an default empty array 
     const { questions = [] } = location.state || {};
-
-
 
     const [currentQuestionIndex, SetcurrentQuestionIndex] = useState(0);
     const [selectedOptions, setSelectedOptions] = useState({});
     const currentQuestion = questions[currentQuestionIndex];
-
     const [isQuizSubmitted, setIsQuizSubmitted] = useState(false);
     const [score, setScore] = useState(0);
 
-
-    const handleoptionClick = (optionKey) => {
+    const handleOptionClick = (optionKey) => {
         setSelectedOptions(prev => ({
             ...prev,
             [currentQuestionIndex]: optionKey,
         }));
-
     }
 
-    const GotoPrev = () => {
+    const goToPrev = () => {
         if (currentQuestionIndex > 0) {
-            SetcurrentQuestionIndex(currentQuestionIndex - 1)
-
+            SetcurrentQuestionIndex(currentQuestionIndex - 1);
         }
     }
 
-    const GoForward = () => {
+    const goForward = () => {
         if (currentQuestionIndex < questions.length - 1) {
             SetcurrentQuestionIndex(currentQuestionIndex + 1);
         } else {
-            // Submit the quiz if it's the last question
             let correctCount = 0;
             questions.forEach((q, i) => {
                 if (selectedOptions[i] === q.answer) {
@@ -49,20 +40,19 @@ function Mainquiz() {
         }
     };
 
-
     if (!questions.length) {
-        return <div className="quiz-page">No questions available. Go back to home.</div>;
+        return <div className="QuizPage">No questions available. Go back to home.</div>;
     }
 
     if (isQuizSubmitted) {
         return (
-            <div className="quiz-page">
-                <div className="resultcard">
-                    <h2 className="resulthead">🎉 Quiz Completed!</h2>
-                    <p className="resultdeclare">
+            <div className="QuizPage">
+                <div className="ResultCard">
+                    <h2 className="ResultHead">🎉 Quiz Completed!</h2>
+                    <p className="ResultDeclare">
                         You scored <span>{score}</span> out of {questions.length}
                     </p>
-                    <p className="resultsuggest">
+                    <p className="ResultSuggest">
                         {score === questions.length
                             ? "🔥 Outstanding! You're a quiz master!"
                             : score >= 8
@@ -71,30 +61,44 @@ function Mainquiz() {
                                     ? "💪 Good try! Review and improve!"
                                     : "🌱 Don't give up! Try again and grow!"}
                     </p>
+
+                    <div className="ReviewSection">
+                        <h3 className="ReviewTitle">📚 Review Your Answers</h3>
+                        {questions.map((q, index) => {
+                            const isCorrect = selectedOptions[index] === q.answer;
+                            return (
+                                <div key={index} className={`ReviewQuestion ${isCorrect ? 'Correct' : 'Wrong'}`}>
+                                    <h4 className="QuestionText">Q{index + 1}. {q.question}</h4>
+                                    <p className="UserAnswer"><strong>Your Answer:</strong> {q.options[selectedOptions[index]] || "Not Answered"}</p>
+                                    {!isCorrect && (
+                                        <p className="CorrectAnswer"><strong>Correct Answer:</strong> {q.options[q.answer]}</p>
+                                    )}
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
         );
     }
 
-
     return (
-
-        <div className='quiz-page'>
-            <div className="quiz-title">Quiz Time!</div>
-            <div className="quiz-card">
-                <div className="quiz-header">
+        <div className='QuizPage'>
+            <div className="QuizTitle">Quiz Time!</div>
+            <div className="QuizCard">
+                <div className="QuizHeader">
                     <h2>Question</h2>
                     <p>{currentQuestionIndex + 1} of {questions.length}</p>
                 </div>
 
-                <div className='question-box'>
+                <div className='QuestionBox'>
                     <h3>{currentQuestion.question}</h3>
-                    <div className='options-list'>
+                    <div className='OptionsList'>
                         {Object.entries(currentQuestion.options).map(([key, value]) => (
                             <button
                                 key={key}
-                                className={`option-btn ${selectedOptions[currentQuestionIndex] === key ? 'selected' : ''}`}
-                                onClick={() => handleoptionClick(key)}
+                                className={`OptionBtn ${selectedOptions[currentQuestionIndex] === key ? 'Selected' : ''}`}
+                                onClick={() => handleOptionClick(key)}
                             >
                                 {value}
                             </button>
@@ -102,20 +106,18 @@ function Mainquiz() {
                     </div>
                 </div>
 
-                <div className='navigation-buttons'>
-                    <button onClick={GotoPrev} disabled={currentQuestionIndex === 0}>Previous</button>
+                <div className='NavigationButtons'>
+                    <button onClick={goToPrev} disabled={currentQuestionIndex === 0}>Previous</button>
                     <button
-                        onClick={GoForward}
+                        onClick={goForward}
                         disabled={currentQuestionIndex === questions.length && isQuizSubmitted}
                     >
                         {currentQuestionIndex === questions.length - 1 ? "Submit" : "Next"}
                     </button>
-
                 </div>
             </div>
         </div>
-
-    )
+    );
 }
 
-export default Mainquiz
+export default Mainquiz;
