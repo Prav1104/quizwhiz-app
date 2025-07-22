@@ -20,7 +20,6 @@ import {
   FlaskConical,
   BookOpen,
   Command,
-  Search
 } from 'lucide-react';
 import SearchBar from '../components/quiz/SearchBar.jsx'
 import { SubjectCard } from '../components/quiz/SubjectCard.jsx';

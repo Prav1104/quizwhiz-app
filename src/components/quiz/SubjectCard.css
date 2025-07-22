@@ -103,3 +103,12 @@ margin: auto;
 .subjectcard-submit:active{
     transform: translateY(1);
 }
+
+
+.loading-text {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  color: #6b7280;
+  font-style: italic;
+  text-align: center;
+}
