@@ -8,6 +8,7 @@ function Mainquiz() {
 
     const [currentQuestionIndex, SetcurrentQuestionIndex] = useState(0);
     const [selectedOptions, setSelectedOptions] = useState({});
+
     const currentQuestion = questions[currentQuestionIndex];
     const [isQuizSubmitted, setIsQuizSubmitted] = useState(false);
     const [score, setScore] = useState(0);
@@ -48,9 +49,9 @@ function Mainquiz() {
         return (
             <div className="QuizPage">
                 <div className="ResultCard">
-                    <h2 className="ResultHead">🎉 Quiz Completed!</h2>
+                    <h2 className="ResultHead">Quiz Completed!</h2>
                     <p className="ResultDeclare">
-                        You scored <span>{score}</span> out of {questions.length}
+                        You solved <span>{score}</span> out of {questions.length}
                     </p>
                     <p className="ResultSuggest">
                         {score === questions.length
