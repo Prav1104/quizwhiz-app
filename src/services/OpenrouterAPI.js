@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 
 const OPENROUTER_API_KEY = process.env.REACT_APP_OPENROUTER_API_KEY;
@@ -15,7 +16,7 @@ Each question should be in JSON format like:
   },
   "answer": "b"
 }
-Return ONLY a JSON array.`;
+Return ONLY a JSON array. No markdown, no backticks.`;
 
   const headers = {
     Authorization: `Bearer ${OPENROUTER_API_KEY}`,
@@ -33,7 +34,15 @@ Return ONLY a JSON array.`;
 
   try {
     const response = await axios.post('https://openrouter.ai/api/v1/chat/completions', body, { headers });
-    const content = response.data.choices[0].message.content;
+
+    let content = response.data.choices[0].message.content;
+
+
+    content = content
+      .replace(/^```json\s*/, '')  // Remove opening ```json
+      .replace(/^```/, '')         // Remove opening ``` if exists
+      .replace(/```$/, '');        // Remove closing ```
+
     const parsed = JSON.parse(content);
     return parsed;
   } catch (error) {
@@ -41,7 +50,6 @@ Return ONLY a JSON array.`;
     throw new Error('Failed to fetch questions from AI.');
   }
 };
-
 
 
 
